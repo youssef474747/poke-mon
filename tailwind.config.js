@@ -3,16 +3,14 @@ module.exports = {
   content: ["./index.html", "./script.js", "./data.js"],
   theme: {
     extend: {
-      // Thème NEUTRE de départ.
-      // TODO (Partie 1) : remplacez ces valeurs par les couleurs et les polices de votre univers.
       colors: {
         brand: {
-          DEFAULT: "#4B5563",
+          DEFAULT: "#485563",
           dark: "#374151",
           light: "#E5E7EB",
         },
         ink: "#000000",
-        muted: "#545B68",
+        muted: "#545068",
         ground: "#FACC15",
         line: "#D5D9E1",
       },

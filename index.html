@@ -9,11 +9,10 @@
 <body class="min-h-screen bg-[url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS_KI8cQXMjMejcCdiZyJh_BzDzK5Oy3efq33owUGSww&s=10')] bg-cover bg-center bg-fixed text-ink">
 
   <!-- ===================== EN-TÊTE ===================== -->
-  <header class="bg-ink text-white">
+  <header class="bg-red-500 text-white">
     <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 px-4 py-4 sm:flex-row sm:flex-wrap sm:items-center sm:px-6 sm:py-5 lg:px-8">
       <div class="flex items-center gap-3">
         <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-brand">
-          <svg aria-hidden="true" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><circle cx="12" cy="12" r="3"></circle></svg>
         </div>
         <div>
           <p class="font-display text-2xl font-extrabold leading-none">Mon Dex</p>
@@ -42,12 +41,12 @@
       </div>
       <div id="filters" role="group" aria-label="Filtrer par type" class="flex h-11 flex-nowrap gap-2 overflow-x-auto">
           <button type="button" class="chip bg-ink text-white border-ink shrink-0">Tous</button>
-          <button type="button" class="chip shrink-0">Feu</button>
-          <button type="button" class="chip shrink-0">Eau</button>
-          <button type="button" class="chip shrink-0">Plante</button>
-          <button type="button" class="chip shrink-0">Électrik</button>
-          <button type="button" class="chip shrink-0">Glace</button>
-          <button type="button" class="chip shrink-0">Ténèbres</button>
+          <button type="button" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp_ECPM-l1lkIiqILQYqdw9ioSOw-DY9YhODcnc4vFpg&s=10')" class="chip shrink-0 bg-cover bg-center text-white">Feu</button>
+          <button type="button" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTMNZ4sNbmVqiAZlRt9Y1GAMWwtg56x-EYWxISlmXqVA&s=10') "class="chip shrink-0 bg-cover bg centre text-white">Eau</button>
+          <button type="button" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGawO-Zs3WhoSZnJ5nEQviZZCrkH0tqsAboDrWjU_lnQ&s=10');"class="chip shrink-0 bg cover bg-centre text-white">Plante</button>
+          <button type="button" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbG1VsRZE6ktd5LJ25kmU3h71soMGpFYdbqGRK-_GfYQ&s=10');"class="chip shrink-0 bg-cover bg-centre text-white">Électrik</button>
+          <button type="button" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJQS2yxP40_pW-jh5R5VHQ-RrdePWTlZPpWnKtFBPkmg&s=10');"class="chip shrink-0 bg-cover bg-centre text-black">Glace</button>
+          <button type="button" style="background-image: url('https://images5.alphacoders.com/775/thumb-1920-775968.jpg');" class="chip shrink-0 bg-cover bg-center text-white ">Ténèbres</button>
       </div>
     </section>
 
@@ -58,8 +57,8 @@
 
         <!-- Carte écrite à la main : à remplacer par des cartes générées en JS (Partie 2) -->
         <article class="flex flex-col gap-3 rounded-card bg-blue-700 p-3 pb-4">
-          <div class="relative flex h-36 items-center justify-center rounded-xl bg-brand-light">
-            <img src="images/pokémon.jpg" alt="Pokémon" class="h-full w-full object-cover rounded-xl">
+          <div style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEdeBVpdym0B3W1_ct2YL7w-KvCcUTNhzzKJdnp7LOCA&s=10');" class="relative flex h-48 items-center justify-center rounded-xl ">
+            <img src="images/pokémon.jpg" alt="P" class="h-full w-full object-cover rounded-xl">
             <span class="absolute left-3 top-2 font-mono text-sm text-muted">#001</span>
           </div>
           <div class="flex items-center justify-between gap-2">
@@ -72,8 +71,7 @@
 
         <!-- Carte écrite à la main : à remplacer par des cartes générées en JS (Partie 2) -->
         <article class="flex flex-col gap-3 rounded-card bg-red-600 p-3 pb-4">
-          <div class="relative flex h-36 items-center justify-center rounded-xl bg-[url(https://static0.srcdn.com/wordpress/wp-content/uploads/Charizard-flying.jpg?w=1200&h=675&fit=crop)]">
-            <svg aria-hidden="true" class="h-14 w-14 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16c0-5 3.5-9 8-9s8 4 8 9"></path><circle cx="9" cy="12" r="1"></circle><circle cx="15" cy="12" r="1"></circle><path d="M7 7 5 3M17 7l2-4"></path></svg>
+         <div style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdgHVRTo4H6dmIUxTF5Dc4JExxrYpHrNle8WGggpwP5w&s=10');" class="w-full h-48 rounded-xl bg-cover bg-center bg-no-repeat">
             <span class="absolute left-3 top-2 font-mono text-sm text-muted">#002</span>
           </div>
           <div class="flex items-center justify-between gap-2">
@@ -86,10 +84,9 @@
 
         <!-- Carte écrite à la main : à remplacer par des cartes générées en JS (Partie 2) -->
         <article class="flex flex-col gap-3 rounded-card bg-green-400 p-3 pb-4">
-          <div class="relative flex h-36 items-center justify-center rounded-xl bg-brand-light">
-            <svg aria-hidden="true" class="h-14 w-14 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16c0-5 3.5-9 8-9s8 4 8 9"></path><circle cx="9" cy="12" r="1"></circle><circle cx="15" cy="12" r="1"></circle><path d="M7 7 5 3M17 7l2-4"></path></svg>
-            <span class="absolute left-3 top-2 font-mono text-sm text-muted">#003</span>
-          </div>
+         <div style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTugjhyI2-EfcBMY8nC2LSg8yVcR7_RdMg7SQLHmGk_nA&s=10');" class="w-full h-48 rounded-xl bg-cover bg-center bg-no-repeat"></div>           
+          <span class="absolute left-3 top-2 font-mono text-sm text-muted">#003</span>
+          
           <div class="flex items-center justify-between gap-2">
             <h3 class="font-display text-xl font-semibold">Bulbasaur</h3>
             <span class="rounded-full bg-green-600 px-3 py-1 text-sm font-bold text-black">Plante</span>
@@ -100,8 +97,7 @@
 
         <!-- Carte écrite à la main : à remplacer par des cartes générées en JS (Partie 2) -->
         <article class="flex flex-col gap-3 rounded-card bg-blue-200 p-3 pb-4">
-          <div class="relative flex h-36 items-center justify-center rounded-xl bg-brand-light">
-            <svg aria-hidden="true" class="h-14 w-14 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16c0-5 3.5-9 8-9s8 4 8 9"></path><circle cx="9" cy="12" r="1"></circle><circle cx="15" cy="12" r="1"></circle><path d="M7 7 5 3M17 7l2-4"></path></svg>
+              <div style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2M83nvGxNCfFlhtrFN62s9bTrxEx21yySu9WTHxchFg&s=10');" class="w-full h-48 rounded-xl bg-cover bg-center bg-no-repeat">   
             <span class="absolute left-3 top-2 font-mono text-sm text-muted">#004</span>
           </div>
           <div class="flex items-center justify-between gap-2">
@@ -114,8 +110,7 @@
 
         <!-- Carte écrite à la main : à remplacer par des cartes générées en JS (Partie 2) -->
         <article class="flex flex-col gap-3 rounded-card bg-purple-500 p-3 pb-4">
-          <div class="relative flex h-36 items-center justify-center rounded-xl bg-brand-light">
-            <svg aria-hidden="true" class="h-14 w-14 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16c0-5 3.5-9 8-9s8 4 8 9"></path><circle cx="9" cy="12" r="1"></circle><circle cx="15" cy="12" r="1"></circle><path d="M7 7 5 3M17 7l2-4"></path></svg>
+         <div style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUVIMAcO4JrGYzIIoTv8wbvW84CS3X731SnWQ_xqF0bg&s=10');" class="w-full h-48 rounded-xl bg-cover bg-center bg-no-repeat">
             <span class="absolute left-3 top-2 font-mono text-sm text-muted">#005</span>
           </div>
           <div class="flex items-center justify-between gap-2">
@@ -128,8 +123,7 @@
 
         <!-- Carte écrite à la main : à remplacer par des cartes générées en JS (Partie 2) -->
         <article class="flex flex-col gap-3 rounded-card bg-orange-400 p-3 pb-4">
-          <div class="relative flex h-36 items-center justify-center rounded-xl bg-brand-light">
-            <svg aria-hidden="true" class="h-14 w-14 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16c0-5 3.5-9 8-9s8 4 8 9"></path><circle cx="9" cy="12" r="1"></circle><circle cx="15" cy="12" r="1"></circle><path d="M7 7 5 3M17 7l2-4"></path></svg>
+         <div style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHBsfAVL6MYOlPspNuCjai4ndHwMZMQzUZGfwJMv22fw&s=10');" class="w-full h-48 rounded-xl bg-cover bg-center bg-no-repeat">
             <span class="absolute left-3 top-2 font-mono text-sm text-muted">#006</span>
           </div>
           <div class="flex items-center justify-between gap-2">
@@ -151,7 +145,6 @@
             <button type="button" aria-label="Fermer le détail" class="btn-outline w-11 px-0 bg-red-500">✕</button>
           </div>
           <div class="flex h-48 items-center justify-center rounded-2xl bg-brand-light">
-            <svg aria-hidden="true" class="h-20 w-20 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16c0-5 3.5-9 8-9s8 4 8 9"></path><circle cx="9" cy="12" r="1"></circle><circle cx="15" cy="12" r="1"></circle><path d="M7 7 5 3M17 7l2-4"></path></svg>
           </div>
           <div class="flex items-center justify-between">
             <h2 class="font-display text-3xl font-extrabold">Mossling</h2>
