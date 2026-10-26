@@ -1,10 +1,23 @@
-// =============================================================
-// script.js — Mon Dex
-// =============================================================
-// Les données viennent de data.js (la constante `creatures`).
-// Écrivez votre code ici, fonctionnalité par fonctionnalité.
-// Une carte GitHub Projects et au moins un commit par fonctionnalité.
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Sélection des éléments HTML
+  const grid = document.querySelector("#grid");
+  const searchInput = document.querySelector("#search");
+  const typeFilters = document.querySelector("#filters");
+  const detailPanel = document.querySelector("#detail");
+  const form = document.querySelector("#create-form");
+  const teamContainer = document.querySelector("#team");
+  const teamCount = document.querySelector("#team-count");
+  const teamMessage = document.querySelector("#team-message");
 
+  // État de l'application
+  let selectedType = "Tous";
+  let team = [];
+
+  // Vérification des éléments indispensables
+  if (!grid) {
+    console.error('Élément #grid introuvable dans index.html');
+    return;
+  }
 
 // -------------------------------------------------------------
 // 1. AFFICHAGE
