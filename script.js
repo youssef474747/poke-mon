@@ -57,7 +57,7 @@ function createCards() {
         let card = document.createElement("div");
 
         card.className =
-            "creature-card bg-white rounded-xl p-4 shadow-sm border cursor-pointer";
+            "creature-card bg-default rounded-xl p-4 shadow-sm border cursor-pointer";
 
         card.dataset.id = creature.id;
 
@@ -83,6 +83,7 @@ function createCards() {
         creatureCount.textContent = monsters.length;
     }
 }
+createCards()
 
 // 3. showDetails()
 
@@ -197,4 +198,28 @@ filters.addEventListener("click", function(event) {
     }
 
     createCards();
+});
+
+
+grid.addEventListener("click", function(event) {
+    let card = event.target.closest(".creature-card");
+
+    if (card === null) {
+        return;
+    }
+
+    let creature = creatures.find(function(item) {
+        return item.id === card.dataset.id;
+    });
+
+    if (creature === undefined) {
+        return;
+    }
+
+    if (event.target.dataset.action === "add") {
+        addToTeam(creature);
+        return;
+    }
+
+    showDetails(creature);
 });
