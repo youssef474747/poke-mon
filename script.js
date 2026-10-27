@@ -276,3 +276,23 @@ function displayTeam() {
     });
 
     teamCount.textContent = team.length;}
+
+    
+// 9. Supprimer une créature de l'équipe
+teamContainer.addEventListener("click", function(event) {
+    let button = event.target.closest("button");
+
+    if (button === null) {
+        return;
+    }
+
+    if (button.dataset.action === "remove") {
+        let id = button.dataset.id;
+
+        team = team.filter(function(creature) {
+            return creature.id !== id;
+        });
+
+        displayTeam();
+    }
+});
