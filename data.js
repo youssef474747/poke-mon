@@ -148,7 +148,7 @@ const creatures = [
         type: "normal",
         level: "50",
         stats: { hp: 160, attack: 110, defence: 65 },
-        image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/143.png",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1pdD3q_pWguols2Z8Wq8Mnb063G5mSweduPjYIrn0DQ&s=10",
         description: "A huge and peaceful Pokémon that loves sleeping and eating, but becomes powerful when it fights."
     },
     {
@@ -157,7 +157,7 @@ const creatures = [
         type: "fire",
         level: "50",
         stats: { hp: 90, attack: 110, defence: 80 },
-        image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/59.png",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwndHwh3StSAamL7A9K0PN8Dewv5p35P7H4F7EpjagrQ&s=10",
         description: "A majestic fire Pokémon known for its incredible speed, courage, and beautiful orange fur."
     },
     {
@@ -166,7 +166,7 @@ const creatures = [
         type: "water",
         level: "50",
         stats: { hp: 130, attack: 85, defence: 80 },
-        image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/131.png",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvDdHwli5R3UbeXAIIifOHJdTGCt0KJcimtfJAHakr2A&s",
         description: "A gentle water Pokémon that carries people across the sea and sings beautiful melodies."
     },
     {
@@ -175,7 +175,7 @@ const creatures = [
         type: "bug",
         level: "50",
         stats: { hp: 70, attack: 130, defence: 100 },
-        image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/212.png",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKRowROLR9vxeAFYCrCULQs1IeYHbfsPGPI_OpXhzL-A&s=10",
         description: "A red armored Pokémon with powerful pincers that can crush objects and strike enemies quickly."
     },
     {
@@ -184,7 +184,7 @@ const creatures = [
         type: "dark",
         level: "50",
         stats: { hp: 100, attack: 134, defence: 110 },
-        image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/248.png",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCHyhFH4oxVusdkedIIn2KM3pAI8ls7ob_xV9C_GInUw&s=10",
         description: "A mighty armored Pokémon with immense strength that can change the surrounding landscape."
     },
 
