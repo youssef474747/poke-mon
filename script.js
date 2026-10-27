@@ -1,231 +1,200 @@
 
-
-let grid = document.querySelector("#grid");
-let search = document.querySelector("#search");
-let filters = document.querySelector("#filters");
-let count = document.querySelector("#creature-count");
-let teamCount = document.querySelector("#team-count");
-let teamSection = document.querySelector("#team");
-let detail = document.querySelector("#detail");
-let form = document.querySelector("#creature-form");
+let grid = document.getElementById("grid");
+let search = document.getElementById("search");
+let filters = document.getElementById("filters");
+let detail = document.getElementById("detail");
+let teamContainer = document.getElementById("team");
+let teamCount = document.getElementById("team-count");
+let creatureCount = document.getElementById("creature-count");
+let form = document.getElementById("creature-form");
 
 let selectedType = "Tous";
 let searchText = "";
-let selectedCreature = creatures[0];
 let team = [];
 
+// 1. getType()
 function getType(type) {
-    let value = type.toLowerCase();
+    type = type.toLowerCase();
 
-    if (value === "feu") return "fire";
-    if (value === "eau") return "water";
-    if (value === "plante") return "grass";
-    if (value === "électrik" || value === "electric") return "electric";
-    if (value === "glace" || value === "ice") return "ice";
-    if (value === "ténèbres" || value === "dark") return "dark";
-
-    return value;
-}
-
-// Traduire le type pour l'afficher en français
-function typeFrancais(type) {
-    let value = getType(type);
-
-    if (value === "fire") return "Feu";
-    if (value === "water") return "Eau";
-    if (value === "grass") return "Plante";
-    if (value === "electric") return "Électrik";
-    if (value === "ice") return "Glace";
-    if (value === "dark") return "Ténèbres";
-    if (value === "fighting") return "Combat";
-    if (value === "ghost") return "Spectre";
-    if (value === "dragon") return "Dragon";
-    if (value === "psychic") return "Psy";
-    if (value === "normal") return "Normal";
+    if (type === "feu") {
+        return "fire";
+    } else if (type === "eau") {
+        return "water";
+    } else if (type === "plante") {
+        return "grass";
+    } else if (type === "électrik" || type === "electrik") {
+        return "electric";
+    } else if (type === "glace") {
+        return "ice";
+    } else if (type === "ténèbres" || type === "tenebres") {
+        return "dark";
+    }
 
     return type;
 }
 
-function totalStats(creature) {
-    return creature.stats.hp +
-        creature.stats.attack +
-        creature.stats.defense;
-}
-
-function renderCreatures() {
-    let html = "";
-    let number = 0;
-
-    creatures.forEach(function(creature) {
+// 2. createCards()
+function createCards() {
+    let monsters = creatures.filter(function(creature) {
         let name = creature.name.toLowerCase();
-        let type = getType(creature.type);
         let text = searchText.toLowerCase();
 
-        let searchCorrect =
-            name.includes(text) ||
-            String(creature.id).includes(text);
+        let matchesSearch = name.includes(text);
+        let matchesType = false;
 
-            let typeCorrect =
-            selectedType === "Tous" ||
-            type === getType(selectedType);
-
-        if (searchCorrect && typeCorrect) {
-            let total = totalStats(creature);
-
-            let alreadyInTeam = team.some(function(member) {
-                return String(member.id) === String(creature.id);
-            });
-
-            let buttonText = "Ajouter à l'équipe";
-
-            if (alreadyInTeam) {
-                buttonText = "Déjà dans l'équipe";
-            }
-
-            html += `
-                <article class="flex flex-col gap-3 rounded-card bg-white p-3 pb-4 shadow">
-                    <div class="relative flex h-48 items-center justify-center rounded-xl bg-ground">
-                        <img
-                            src="${creature.image}"
-                            alt="${creature.name}"
-                            class="h-full w-full rounded-xl object-contain"
-                        >
-                        <span class="absolute left-3 top-2 rounded bg-white px-2 py-1 font-mono text-sm">
-                            #${creature.id}
-                        </span>
-                    </div>
-
-                    <div class="flex items-center justify-between gap-2">
-                        <h3 class="font-display text-xl font-semibold">
-                            ${creature.name}
-                        </h3>
-
-                        <span class="rounded-full bg-sky-200 px-3 py-1 text-sm font-bold text-black">
-                            ${typeFrancais(creature.type)}
-                        </span>
-                    </div>
-
-                    <p class="text-sm font-semibold">
-                        Niveau : ${creature.level} · Total : ${total}
-                    </p>
-
-                    <button
-                        type="button"
-                        class="btn-outline bg-ground"
-                        data-action="detail"
-                        data-id="${creature.id}"
-                    >
-                        Voir les détails
-                    </button>
-
-                    <button
-                        type="button"
-                        class="btn-outline bg-ground"
-                        data-action="team"
-                        data-id="${creature.id}"
-                        ${alreadyInTeam ? "disabled" : ""}
-                    >
-                        ${buttonText}
-                    </button>
-                </article>
-            `;
-
-            number++;
+        if (selectedType === "Tous") {
+            matchesType = true;
+        } else if (getType(creature.type) === getType(selectedType)) {
+            matchesType = true;
         }
+
+        return matchesSearch && matchesType;
     });
 
-    if (number === 0) {
-        html = `
-            <p class="rounded-xl bg-white p-4">
-                Aucune créature trouvée.
-            </p>
-        `;
-    }
+    grid.innerHTML = "";
 
-    grid.innerHTML = html;
-    count.textContent = number;
+    monsters.forEach(function(creature) {
+        let card = document.createElement("div");
+
+        card.className =
+            "creature-card bg-white rounded-xl p-4 shadow-sm border cursor-pointer";
+
+        card.dataset.id = creature.id;
+
+        card.innerHTML = `
+            <img src="${creature.image}" alt="${creature.name}"
+                class="w-full h-40 object-contain">
+
+            <h3 class="font-bold text-lg mt-2">${creature.name}</h3>
+
+            <p>Type : ${creature.type}</p>
+            <p>Niveau : ${creature.level}</p>
+
+            <button type="button" data-action="add"
+                class="mt-3 px-4 py-2 rounded-lg bg-gray-800 text-white">
+                Ajouter à l'équipe
+            </button>
+        `;
+
+        grid.appendChild(card);
+    });
+
+    if (creatureCount !== null) {
+        creatureCount.textContent = monsters.length;
+    }
 }
 
+// 3. showDetails()
 
+function showDetails(creature) {
+    let defense = creature.stats.defense;
 
+    if (defense === undefined) {
+        defense = creature.stats.defence;
+    }
 
+    let stats = [
+        {
+            name: "HP",
+            value: creature.stats.hp,
+            color: "bg-green-500"
+        },
+        {
+            name: "Attaque",
+            value: creature.stats.attack,
+            color: "bg-red-500"
+        },
+        {
+            name: "Défense",
+            value: defense,
+            color: "bg-blue-500"
+        }
+    ];
 
+    let statsHTML = "";
 
+    stats.forEach(function(stat) {
+        let percentage = stat.value;
 
+        if (percentage > 100) {
+            percentage = 100;
+        }
 
+        statsHTML += `
+            <div class="mb-4">
+                <div class="flex justify-between items-center mb-1">
+                    <span class="font-semibold text-gray-700">
+                        ${stat.name}
+                    </span>
 
+                    <span class="font-bold text-gray-900">
+                        ${stat.value}
+                    </span>
+                </div>
 
+                <div class="w-full bg-gray-200 rounded-full h-3">
+                    <div
+                        class="${stat.color} h-3 rounded-full transition-all duration-500"
+                        style="width: ${percentage}%">
+                    </div>
+                </div>
+            </div>
+        `;
+    });
 
+    detail.innerHTML = `
+        <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-200">
 
+            <img src="${creature.image}" alt="${creature.name}"
+                class="w-full h-48 object-contain">
 
+            <h2 class="text-2xl font-bold text-gray-900 mt-3">
+                ${creature.name}
+            </h2>
 
+            <div class="flex gap-2 mt-2 mb-5">
+                <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold">
+                    ${creature.type}
+                </span>
 
+                <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-semibold">
+                    Niveau ${creature.level}
+                </span>
+            </div>
 
+            <h3 class="text-lg font-bold mb-4 text-gray-800">
+                Statistiques
+            </h3>
 
+            ${statsHTML}
 
+            <p class="mt-5 text-gray-600 leading-relaxed">
+                ${creature.description}
+            </p>
 
+        </div>
+    `;
+}
 
+// 4. Recherche par nom
+search.addEventListener("input", function() {
+    searchText = search.value;
+    createCards();
+});
 
+// 5. Filtrer par type
+filters.addEventListener("click", function(event) {
+    let button = event.target.closest("button");
 
-// =============================================================
-// script.js — Mon Dex
-// =============================================================
-// Les données viennent de data.js (la constante `creatures`).
-// Écrivez votre code ici, fonctionnalité par fonctionnalité.
-// Une carte GitHub Projects et au moins un commit par fonctionnalité.
+    if (button === null) {
+        return;
+    }
 
+    selectedType = button.dataset.type;
 
-// -------------------------------------------------------------
-// 1. AFFICHAGE
-// Supprimez les cartes écrites à la main dans index.html et
-// construisez la grille à partir du tableau `creatures`.
-// -------------------------------------------------------------
+    if (selectedType === undefined) {
+        selectedType = button.textContent.trim();
+    }
 
-
-// -------------------------------------------------------------
-// 2. DÉTAIL
-// Un clic sur une carte ouvre le panneau de détail :
-// image, description, et statistiques affichées en barres.
-// -------------------------------------------------------------
-
-
-// -------------------------------------------------------------
-// 3. RECHERCHE
-// La liste se met à jour pendant la saisie d'un nom
-// (sans tenir compte des majuscules).
-// -------------------------------------------------------------
-
-
-// -------------------------------------------------------------
-// 4. FILTRE
-// Les boutons de type n'affichent que les créatures de ce type ;
-// « Tous » réinitialise le filtre.
-// La recherche et le filtre fonctionnent ENSEMBLE.
-// -------------------------------------------------------------
-
-
-// -------------------------------------------------------------
-// 5. CRÉER UNE CRÉATURE
-// Validez chaque champ du formulaire avec une expression régulière
-// (voir le tableau du brief). Affichez le message d'erreur sous le
-// champ, et n'ajoutez jamais une créature invalide.
-// -------------------------------------------------------------
-
-
-// -------------------------------------------------------------
-// 6. MON ÉQUIPE
-// Boutons « Ajouter à l'équipe » et « Retirer », gérés avec UN SEUL
-// écouteur sur la grille et UN SEUL sur l'équipe (délégation).
-// -------------------------------------------------------------
-
-
-// -------------------------------------------------------------
-// 7. RÈGLES DE L'ÉQUIPE
-// 6 créatures au maximum, pas de doublon, un message clair quand
-// une action est refusée, et un compteur (x/6).
-// -------------------------------------------------------------
-
-
-// -------------------------------------------------------------
-// BONUS : LocalStorage, Fetch API, tri, comparaison
-// -------------------------------------------------------------
+    createCards();
+});

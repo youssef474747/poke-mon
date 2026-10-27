@@ -141,6 +141,53 @@ const creatures = [
 
     },
     
+    
+    {
+        id: "#013",
+        name: "Snorlax",
+        type: "normal",
+        level: "50",
+        stats: { hp: 160, attack: 110, defence: 65 },
+        image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/143.png",
+        description: "A huge and peaceful Pokémon that loves sleeping and eating, but becomes powerful when it fights."
+    },
+    {
+        id: "#014",
+        name: "Arcanine",
+        type: "fire",
+        level: "50",
+        stats: { hp: 90, attack: 110, defence: 80 },
+        image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/59.png",
+        description: "A majestic fire Pokémon known for its incredible speed, courage, and beautiful orange fur."
+    },
+    {
+        id: "#015",
+        name: "Lapras",
+        type: "water",
+        level: "50",
+        stats: { hp: 130, attack: 85, defence: 80 },
+        image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/131.png",
+        description: "A gentle water Pokémon that carries people across the sea and sings beautiful melodies."
+    },
+    {
+        id: "#016",
+        name: "Scizor",
+        type: "bug",
+        level: "50",
+        stats: { hp: 70, attack: 130, defence: 100 },
+        image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/212.png",
+        description: "A red armored Pokémon with powerful pincers that can crush objects and strike enemies quickly."
+    },
+    {
+        id: "#017",
+        name: "Tyranitar",
+        type: "dark",
+        level: "50",
+        stats: { hp: 100, attack: 134, defence: 110 },
+        image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/248.png",
+        description: "A mighty armored Pokémon with immense strength that can change the surrounding landscape."
+    },
+
 
 
 ];
