@@ -57,8 +57,7 @@ function createCards() {
         let card = document.createElement("div");
 
         card.className =
-            "creature-card bg-default rounded-xl p-4 shadow-sm border cursor-pointer";
-
+    "creature-card bg-blue 400 rounded-xl p-4 shadow-sm border cursor-pointer";
         card.dataset.id = creature.id;
 
         card.innerHTML = `
@@ -223,3 +222,27 @@ grid.addEventListener("click", function(event) {
 
     showDetails(creature);
 });
+
+
+
+// 7. Ajouter une créature à l'équipe
+function addToTeam(creature) {
+    let alreadyExists = team.some(function(item) {
+        return item.id === creature.id;
+    });
+
+    if (alreadyExists) {
+        alert("Cette créature est déjà dans l'équipe.");
+        return;
+    }
+
+    if (team.length >= 6) {
+        alert("L'équipe ne peut pas dépasser 6 créatures.");
+        return;
+    }
+
+    team.push(creature);
+    displayTeam();
+}
+
+
