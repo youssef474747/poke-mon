@@ -246,3 +246,33 @@ function addToTeam(creature) {
 }
 
 
+
+// 8. Afficher l'équipe
+function displayTeam() {
+    teamContainer.innerHTML = "";
+
+    team.forEach(function(creature) {
+        let item = document.createElement("div");
+
+        item.className =
+            "flex items-center justify-between gap-2 p-2 rounded-lg bg-white border";
+
+        item.innerHTML = `
+            <div class="flex items-center gap-2">
+                <img src="${creature.image}" alt="${creature.name}"
+                    class="w-12 h-12 object-contain">
+
+                <span class="font-bold">${creature.name}</span>
+            </div>
+
+            <button type="button" data-action="remove"
+                data-id="${creature.id}"
+                class="px-3 py-1 rounded bg-red-600 text-white">
+                Supprimer
+            </button>
+        `;
+
+        teamContainer.appendChild(item);
+    });
+
+    teamCount.textContent = team.length;}
